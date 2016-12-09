@@ -43,9 +43,9 @@ class App():
         """
         
         """
-	    Normalize the data by transforming it onto a unit scale (mean=0 and variance=1).
-	    Performing PCA on unnormalized data will lead to dependence on variable with high variance. 
-	    """
+	Normalize the data by transforming it onto a unit scale (mean=0 and variance=1).
+	Performing PCA on unnormalized data will lead to dependence on variable with high variance. 
+	"""
         self._scaledSamples = StandardScaler().fit_transform(self._X)
 
         # Covariance matrix -> Covariance matrix represents the covariance between different features in dataset.
@@ -54,9 +54,9 @@ class App():
         self._covarianceMatrix = (self._scaledSamples - self._meanVector).T.dot((self._scaledSamples - self._meanVector)) / (self._scaledSamples.shape[0]-1)
         
         """
-	    Implementing a EigenDecomposition on covariance matrix gives EigenValues and EigenVectors.
-	    Sum of the EigenValues gives the variance in the dataset.
-	    """
+	Implementing a EigenDecomposition on covariance matrix gives EigenValues and EigenVectors.
+	Sum of the EigenValues gives the variance in the dataset.
+	"""
         self._eigenValues, self._eigenVectors = np.linalg.eig(self._covarianceMatrix)
         
         print("\nComputed EigenVectors are: \n%s" %self._eigenVectors)
