@@ -15,7 +15,7 @@ class App():
         # Loads the data
         self._leaf = pd.read_csv(filename, dtype=np.float64, header=None)
        
-        # Spliting the leaf data into training data and class label.
+        # Spliting the leaf data into features and class label.
         self._X = self._leaf.ix[:,2:15].values
         self._y = self._leaf.ix[:,0].values
 
